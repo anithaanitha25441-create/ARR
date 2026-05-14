@@ -1,65 +1,361 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>Galaxy Zoo</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Modern Landing Page</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      background:#0f172a;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    /* Navbar */
+
+    nav{
+      width:100%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 8%;
+      position:fixed;
+      top:0;
+      z-index:1000;
+      background:rgba(15,23,42,0.8);
+      backdrop-filter:blur(10px);
+    }
+
+    nav h1{
+      font-size:32px;
+      color:#38bdf8;
+    }
+
+    nav ul{
+      display:flex;
+      gap:30px;
+      list-style:none;
+    }
+
+    nav ul li a{
+      color:white;
+      text-decoration:none;
+      transition:0.3s;
+    }
+
+    nav ul li a:hover{
+      color:#38bdf8;
+    }
+
+    .btn{
+      padding:12px 28px;
+      border:none;
+      border-radius:30px;
+      background:linear-gradient(45deg,#06b6d4,#3b82f6);
+      color:white;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.4s;
+      box-shadow:0 10px 30px rgba(59,130,246,0.4);
+    }
+
+    .btn:hover{
+      transform:translateY(-4px);
+    }
+
+    /* Hero Section */
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:120px 8%;
+      position:relative;
+    }
+
+    .hero-text{
+      width:50%;
+    }
+
+    .hero-text h2{
+      font-size:60px;
+      line-height:1.2;
+      margin-bottom:20px;
+    }
+
+    .hero-text span{
+      color:#38bdf8;
+    }
+
+    .hero-text p{
+      color:#cbd5e1;
+      line-height:1.8;
+      margin-bottom:30px;
+    }
+
+    .hero-image{
+      width:40%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .glass{
+      width:350px;
+      height:350px;
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.2);
+      border-radius:30px;
+      backdrop-filter:blur(20px);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      box-shadow:0 20px 40px rgba(0,0,0,0.4);
+      animation:float 4s ease-in-out infinite;
+    }
+
+    .glass img{
+      width:80%;
+    }
+
+    @keyframes float{
+      0%,100%{
+        transform:translateY(0px);
+      }
+      50%{
+        transform:translateY(-20px);
+      }
+    }
+
+    /* Features */
+
+    .features{
+      padding:100px 8%;
+      text-align:center;
+    }
+
+    .features h2{
+      font-size:42px;
+      margin-bottom:50px;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+    }
+
+    .card{
+      background:rgba(255,255,255,0.05);
+      padding:40px 30px;
+      border-radius:20px;
+      transition:0.4s;
+      border:1px solid rgba(255,255,255,0.1);
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+      background:rgba(56,189,248,0.15);
+    }
+
+    .card h3{
+      margin:20px 0;
+      font-size:24px;
+    }
+
+    .card p{
+      color:#cbd5e1;
+      line-height:1.7;
+    }
+
+    /* About */
+
+    .about{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:100px 8%;
+      gap:50px;
+      flex-wrap:wrap;
+    }
+
+    .about img{
+      width:450px;
+      border-radius:25px;
+      box-shadow:0 20px 40px rgba(0,0,0,0.4);
+    }
+
+    .about-text{
+      flex:1;
+    }
+
+    .about-text h2{
+      font-size:42px;
+      margin-bottom:20px;
+    }
+
+    .about-text p{
+      color:#cbd5e1;
+      line-height:1.8;
+      margin-bottom:25px;
+    }
+
+    /* Footer */
+
+    footer{
+      text-align:center;
+      padding:40px;
+      background:#020617;
+      color:#94a3b8;
+    }
+
+    /* Responsive */
+
+    @media(max-width:900px){
+
+      .hero{
+        flex-direction:column;
+        text-align:center;
+      }
+
+      .hero-text{
+        width:100%;
+      }
+
+      .hero-image{
+        width:100%;
+        margin-top:50px;
+      }
+
+      .hero-text h2{
+        font-size:42px;
+      }
+
+      nav ul{
+        display:none;
+      }
+
+      .about{
+        flex-direction:column;
+      }
+
+      .about img{
+        width:100%;
+      }
+    }
+
+  </style>
 </head>
 
 <body>
 
-    <h1>🌍 GALAXY ZOO</h1>
+  <!-- Navbar -->
 
-    <h2>Welcome to the Future Animal World</h2>
-
-    <p>
-        Galaxy Zoo is a futuristic animal organization that protects rare animals
-        from different planets and forests.
-    </p>
-
-    <hr>
-
-    <h2>🚀 Animals in Our Care</h2>
+  <nav>
+    <h1>ARR</h1>
 
     <ul>
-        <li>Moon Tigers</li>
-        <li>Fire Wolves</li>
-        <li>Ice Penguins</li>
-        <li>Golden Eagles</li>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Features</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
     </ul>
 
-    <hr>
+    <button class="btn">Get Started</button>
+  </nav>
 
-    <h2>🌱 Our Mission</h2>
+  <!-- Hero -->
 
-    <p>
-        We rescue injured animals, provide food, medical care,
-        and create safe homes for them.
-    </p>
+  <section class="hero">
 
-    <hr>
+    <div class="hero-text">
+      <h2>Create Amazing <span>Web Experiences</span></h2>
 
-    <h2>📸 Animal of the Month</h2>
+      <p>
+        Build beautiful, modern and responsive websites with smooth animations,
+        glassmorphism effects and stunning layouts.
+      </p>
 
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/56/Tiger.50.jpg"
-         width="300">
+      <button class="btn">Explore Now</button>
+    </div>
 
-    <p>
-        This is our rescued Bengal Tiger named Leo.
-    </p>
+    <div class="hero-image">
+      <div class="glass">
+        <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png">
+      </div>
+    </div>
 
-    <hr>
+  </section>
 
-    <h2>📞 Contact Us</h2>
+  <!-- Features -->
 
-    <p>Email: galaxyzoo@gmail.com</p>
-    <p>Phone: +91 9876543210</p>
+  <section class="features">
 
-    <hr>
+    <h2>Awesome Features</h2>
 
-    <h2>💖 Become a Volunteer</h2>
+    <div class="cards">
 
-    <button>Join Now</button>
+      <div class="card">
+        <h3>Modern UI</h3>
+        <p>
+          Stylish user interface with beautiful gradients and animations.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Responsive</h3>
+        <p>
+          Fully mobile-friendly design that works on all devices perfectly.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Fast Performance</h3>
+        <p>
+          Lightweight and optimized code for smooth browsing experience.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- About -->
+
+  <section class="about">
+
+    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop">
+
+    <div class="about-text">
+      <h2>Design Beyond Limits</h2>
+
+      <p>
+        This landing page is built using only HTML and CSS with premium style,
+        glowing buttons, clean layouts, modern cards and responsive sections.
+      </p>
+
+      <button class="btn">Learn More</button>
+    </div>
+
+  </section>
+
+  <!-- Footer -->
+
+  <footer>
+    © 2025 ARR. All Rights Reserved.
+  </footer>
 
 </body>
-
 </html>
